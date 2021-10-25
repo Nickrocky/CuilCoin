@@ -3,7 +3,8 @@ package com.nickrocky;
 /**
  * @Author nickrocky213
  * @Date: 10/25/2021
- * Genesis block is initialized with the burn wallet sending a master wallet the total supply of coins. 
+ * Genesis block is initialized with the burn wallet sending a master wallet the total supply of coins.
+ * Max supply of cuil coin is 200 million.
  * */
 public class GenesisBlock extends Block{
     public GenesisBlock() {
