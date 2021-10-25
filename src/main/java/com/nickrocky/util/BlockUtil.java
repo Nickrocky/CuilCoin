@@ -11,6 +11,18 @@ public class BlockUtil {
         return false;
     }
 
+    public static int calculateDifficultyFromPreviousBlock(String previousBlockHash){
+        var count = 0;
+        for(char a : previousBlockHash.toCharArray()){
+            if(a == 'f') count++;
+        }
+        if(count < 10){
+            return count;
+        }else{
+            return 9;
+        }
+    }
+
     private static String getZeros(int numOfZero){
         var base = "";
         for(int i = 0; i < numOfZero; i++){
