@@ -1,20 +1,19 @@
 package com.nickrocky;
 
+import com.nickrocky.net.Peer;
+import lombok.Getter;
 import lombok.SneakyThrows;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.net.URL;
-import java.nio.file.Paths;
 
 public class CuilCoin {
 
+    @Getter private static Peer peerInstance;
 
 @SneakyThrows
     public static void main(String... args){
-        JFrame jFrame = new JFrame("Cuil Coin Node");
+        peerInstance = new Peer();
+        Peer peer = new Peer();
+        peer.sendBlockMintedPacket(new GenesisBlock());
+        /*JFrame jFrame = new JFrame("Cuil Coin Node");
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         URL resource = CuilCoin.class.getClassLoader().getResource("CuilCoinLogo.png");
         BufferedImage icon = ImageIO.read(Paths.get(resource.toURI()).toFile());
@@ -24,6 +23,6 @@ public class CuilCoin {
         jFrame.getContentPane().add(button);
         jFrame.getContentPane().add(existingUserButton);
         jFrame.pack();
-        jFrame.setVisible(true);
+        jFrame.setVisible(true);*/
     }
 }

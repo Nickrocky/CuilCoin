@@ -1,7 +1,7 @@
 package com.nickrocky.net.packet;
 
-import com.nickrocky.CuilChain;
 import lombok.Getter;
+import lombok.SneakyThrows;
 
 import java.net.DatagramPacket;
 import java.net.InetAddress;
@@ -14,11 +14,12 @@ public abstract class CuilPacket {
     private final int dataLength;
     private final InetAddress recipientAddress;
 
-    public CuilPacket(String content, InetAddress recipientAddress){
+    @SneakyThrows
+    public CuilPacket(String content, String recipientAddress){
         this.content = content;
         this.port = 22112;
         this.dataLength = content.length();
-        this.recipientAddress = recipientAddress;
+        this.recipientAddress = InetAddress.getByName(recipientAddress);
     }
 
     public DatagramPacket toPacket(){
